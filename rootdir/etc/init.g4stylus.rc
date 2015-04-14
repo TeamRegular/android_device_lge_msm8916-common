@@ -655,19 +655,8 @@ service charger /sbin/healthd -c
     critical
     seclabel u:r:healthd:s0
 
-service vm_bms /system/bin/vm_bms
-    user root
-    group root
-    disabled
-
 # Charger
 on charger
-   wait /dev/block/bootdevice/by-name/system
-   mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-   chown root system /sys/class/power_supply/bms/current_now
-   chown root system /sys/class/power_supply/bms/voltage_ocv
-   chmod 0664 /sys/class/power_supply/bms/current_now
-   chmod 0664 /sys/class/power_supply/bms/voltage_ocv
    write /sys/class/android_usb/android0/enable 0
    write /sys/class/android_usb/android0/idVendor 1004
    write /sys/class/android_usb/android0/idProduct 6300
@@ -676,7 +665,6 @@ on charger
    write /sys/class/android_usb/android0/bDeviceProtocol 0
    write /sys/class/android_usb/android0/functions charge_only
    write /sys/class/android_usb/android0/enable 1
-   start vm_bms
 
 # start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
