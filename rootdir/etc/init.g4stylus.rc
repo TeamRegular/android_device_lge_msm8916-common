@@ -1,0 +1,22 @@
+# This file will be installed as /init.{ro.hardware}.rc
+
+import /init.qcom.rc
+import /init.lge.usb.rc
+import /init.lge.log.rc
+
+# to override init.qcom.rc
+import /init.epsilon0c_core.rc
+import /init.lge.power.rc
+
+# modem logging (LGODM)
+import /init.lge.modem_log.rc
+
+# modem reset feature [START]
+on property:rild.modem_restart=silence
+    write /sys/module/lge_handle_panic/parameters/gen_modem_panic 2
+# modem reset feature [END]
+
+service atd /system/bin/atd /dev/ttyGS0 /dev/smd0
+socket atd stream 0660 system inet
+class main
+
