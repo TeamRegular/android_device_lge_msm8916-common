@@ -34,28 +34,25 @@ import /init.g4stylus_sensors.rc
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell/emulated 0700 shell shell
-    #mkdir /storage 0050 system sdcard_r
-    mkdir /storage 0751 system sdcard_r
-    mkdir /storage/external_SD 0700 root root
-    mkdir /storage/emulated 0555 root root
-    mkdir /storage/emulated/legacy 0555 root root
-    mkdir /mnt/media_rw 0700 media_rw media_rw
-    mkdir /mnt/media_rw/external_SD 0700 media_rw media_rw
-    #mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
-    mkdir /mnt/media_rw/uicc0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/uicc1 0700 media_rw media_rw
-    #mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/uicc0 0700 root root
-    mkdir /storage/usbotg 0700 root root
+    mkdir /persist-lg 0755 system system
     mkdir /sns 0775 system system
 
+    # See storage config details at http://source.android.com/tech/storage/
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
+    mkdir /mnt/media_rw/uicc0 0700 media_rw media_rw
+    mkdir /mnt/media_rw/uicc1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
+    mkdir /storage/uicc0 0700 root root
+    mkdir /storage/uicc1 0700 root root
+    mkdir /storage/usbdisk 0700 root root
+    mkdir /mnt/pstore 660 system system
+    mount pstore /mnt/pstore /mnt/pstore
+
     export EXTERNAL_STORAGE /storage/emulated/legacy
-    #export SECONDARY_STORAGE /storage/sdcard1
-    export EXTERNAL_ADD_STORAGE /storage/external_SD
-    export SECONDARY_STORAGE /storage/external_SD
+    export SECONDARY_STORAGE /storage/sdcard1
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
 
@@ -64,6 +61,7 @@ on init
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+
     # START touch_driver
     chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
     chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
@@ -99,8 +97,15 @@ on property:init.svc.servicemanager=restarting
     restart qcamerasvr
 #LGE_CHANGE_E, restart qcamerasvr when restarting mediaserver and servicemanager, yousung.kang@lge.com
 
-#service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-service fuse_external_SD /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/external_SD /storage/external_SD
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+    class late_start
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
     class late_start
     disabled
 
