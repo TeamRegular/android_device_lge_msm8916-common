@@ -1,6 +1,7 @@
 # This file will be installed as /init.{ro.hardware}.rc
 
 import /init.qcom.rc
+import /init.lge.rc
 import /init.lge.usb.rc
 import /init.lge.log.rc
 
