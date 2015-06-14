@@ -188,7 +188,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.target.rc \
-    set_emmc_size.sh \ 
+    set_emmc_size.sh \
     ueventd.g4stylus.rc
 
 # RIL
