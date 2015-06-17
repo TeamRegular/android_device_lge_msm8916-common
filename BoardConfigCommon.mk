@@ -88,9 +88,6 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Malloc
 MALLOC_IMPL := dlmalloc
 
-# NFC
-BOARD_NFC_CHIPSET := pn547
-
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 
