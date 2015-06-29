@@ -81,6 +81,8 @@ on init
     chmod 664 /sys/devices/virtual/input/lge_touch/ime_status
     chown system system /sys/devices/virtual/input/lge_touch/rawdata
     chmod 664 /sys/devices/virtual/input/lge_touch/rawdata
+    chown system system /sys/devices/virtual/input/lge_touch/use_quick_window
+    chmod 664 /sys/devices/virtual/input/lge_touch/use_quick_window
 
     #For key_lock ATD command
     chown system system /sys/devices/platform/factory_misc.0/key_lock
@@ -100,14 +102,16 @@ on property:init.svc.servicemanager=restarting
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
+    oneshot
 
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
     disabled
+    oneshot
 
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
-    class late_start
-    disabled
+     class late_start
+     disabled
 
 service chcon_keystore /system/bin/sh /system/etc/init.g4stylusn_chcon_keystore.sh
     disabled
@@ -137,3 +141,5 @@ on boot
 	chmod 0664 /sys/class/leds/red/pattern_id
 	chown system system /sys/class/leds/red/timed
 	chmod 0664 /sys/class/leds/red/timed
+	chown system system /sys/class/leds/red/time_on_off
+	chmod 0664 /sys/class/leds/red/time_on_off

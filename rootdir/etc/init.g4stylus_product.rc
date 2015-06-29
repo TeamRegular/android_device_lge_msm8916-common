@@ -8,9 +8,6 @@ on fs
     exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/mpt
     mount ext4 /dev/block/bootdevice/by-name/mpt /mpt nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
 
-on post-fs
-	mkdir /data/misc/vpnclientd 0770 system system
-
 on post-fs-data
     chown system system /mpt
     chmod 0775 /mpt
@@ -26,7 +23,7 @@ on post-fs-data
     exec /system/bin/mcStarter tbase
 
 on init
-    # FEATURE_SDCARD_ENCRYPTION
+    # FEATURE_SDCARD_ENCRYPTION	11
 	setprop ro.ssbd.session /dev/block/bootdevice/by-name/eksst
 	setprop ro.ssbd.offset 0
 
@@ -48,31 +45,17 @@ on init
 	setprop persist.sys.cnd.iwlan 2
 #[END][ePDG][changhwan.lee] set ePDG property
 
+on post-fs-data
+        mkdir /persist-lg/callduration 0770 system radio
+        chown system radio /persist-lg/callduration
+        chmod 0770 /persist-lg/callduration
+
 # Mobicore
 service mobicore /system/bin/mcDriverDaemon
     setenv MC_AUTH_TOKEN_PATH /persist-lg/mcRegistry
     user system
     group system
     class main
-
-# LG VPN_3_3_1
-service vpnclientd /system/bin/vpnclientd
-	class main
-	socket vpnclientd seqpacket 0600 system system
-	user system
-	group system net_admin inet net_raw
-	disabled
-
-	on property:service.vpnclientd.enable=1
-	start vpnclientd
-	on property:service.vpnclientd.enable=0
-	stop vpnclientd
-
-# enable FIPS
-service ufips /system/bin/ufips
-    class core
-    user system
-    group system
 
 #[START][SEC_USA][RSU][deokhwa.seo] Start tsdemon
 service tsdaemon /system/bin/tsdaemon
