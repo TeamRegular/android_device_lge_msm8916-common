@@ -21,7 +21,7 @@
 #define SUCCESS 0
 #define FAILED -1
 
-#define CALIBRATION_PATH "/dev/block/platform/msm_sdcc.1/by-name/misc"
+#define CALIBRATION_PATH "/dev/block/bootdevice/by-name/misc"
 
 #include <cutils/log.h>
 #include <sys/types.h>
