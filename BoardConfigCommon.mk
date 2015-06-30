@@ -100,6 +100,7 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+TARGET_RECOVERY_DEVICE_DIRS += device/lge/g4stylus-common
 TARGET_RECOVERY_FSTAB := device/lge/g4stylus-common/rootdir/etc/fstab.g4stylus
 TARGET_USERIMAGES_USE_EXT4 := true
 
