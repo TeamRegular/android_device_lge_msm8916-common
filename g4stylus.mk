@@ -159,6 +159,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.g4stylus \
+    init.class_main.sh \
     init.epsilon0c_core.rc \
     init.g4stylus.rc \
     init.g4stylus_core.rc \
