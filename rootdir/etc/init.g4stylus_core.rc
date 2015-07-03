@@ -26,9 +26,6 @@
 #
 
 import /init.g4stylus_product.rc
-# BT_S : [CONBT-720] BDADDR_LOADER
-import /init.lge.bt_vendor.rc
-# BT_E : [CONBT-720] BDADDR_LOADER
 import /init.g4stylus_sensors.rc
 
 on init

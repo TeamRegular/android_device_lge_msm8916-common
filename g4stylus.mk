@@ -74,10 +74,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    bdAddrLoader
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -160,10 +156,10 @@ PRODUCT_PACKAGES += \
     init.g4stylus_core.rc \
     init.g4stylus_product.rc \
     init.g4stylus_sensors.rc \
-    init.lge.bt_vendor.rc \
     init.lge.rc \
     init.lge.usb.rc \
     init.lge.usb.sh \
+    init.qcom.bt.sh \
     init.qcom.class_core.sh \
     init.qcom.rc \
     init.qcom.sh \
