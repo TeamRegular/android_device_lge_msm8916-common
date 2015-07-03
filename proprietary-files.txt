@@ -30,6 +30,7 @@ vendor/lib/libbtnv.so
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so
 lib/libarcsoft_beauty_shot.so
+lib/libHDR.so
 lib/libmm-qcamera.so
 lib/libmmcamera_hi841.so
 lib/libmmcamera_interface.so
@@ -146,6 +147,7 @@ vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
+vendor/lib/libsecureui.so
 vendor/lib/libssd.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
@@ -191,6 +193,7 @@ vendor/lib/libC2D2.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-qcom.so
+vendor/lib/libmm-qdcm.so
 vendor/lib/libOpenCL.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/librs_adreno.so
