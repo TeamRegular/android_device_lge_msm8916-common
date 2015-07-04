@@ -4,7 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=false \
     audio.offload.pcm.enable=true \
-    tunnel.audio.encode = false \
+    tunnel.audio.encode=false \
     av.offload.enable=false \
     av.streaming.offload.enable=false \
     persist.audio.fluence.voicecall=true \
@@ -19,6 +19,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     voice.record.conc.disabled=true \
     voice.voip.conc.disabled=true \
 
+# CNE
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.cne.feature=1
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -31,9 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=0 \
-    ro.gps.agps_provider=1 \
-    ro.qc.sdk.izat.premium_enabled=0 \
-    ro.qc.sdk.izat.service_mask=0x0
+    ro.gps.agps_provider=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -60,10 +61,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.netmgrd.qos.enable \
+    persist.data.netmgrd.qos.enable=false \
     persist.radio.apm_sim_not_pwdn=1 \
     ro.telephony.ril_class=LgeLteRIL \
     ro.use_data_netmgrd=true
+
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.fuse_sdcard=true \
+    persist.sys.isUsbOtgEnabled=true
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
