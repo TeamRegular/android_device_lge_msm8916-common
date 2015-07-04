@@ -112,7 +112,7 @@ service ppd /system/bin/mm-pp-daemon
 
 service wcnss-service /system/bin/wcnss_service
     class late_start
-    user system
+    user root
     group system wifi
     oneshot
 
