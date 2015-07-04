@@ -261,6 +261,7 @@ etc/permissions/qcrilhook.xml
 -framework/qcrilhook.jar
 
 # Sensors
+lib/hw/lights.msm8916.so
 lib/hw/sensors.msm8916.so
 
 # Thermal
