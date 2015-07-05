@@ -276,12 +276,12 @@ vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # WCNSS
-vendor/firmware/wcnss.b00
-vendor/firmware/wcnss.b01
-vendor/firmware/wcnss.b02
-vendor/firmware/wcnss.b04
-vendor/firmware/wcnss.b06
-vendor/firmware/wcnss.b09
-vendor/firmware/wcnss.b10
-vendor/firmware/wcnss.b11
-vendor/firmware/wcnss.mdt
+etc/firmware/wcnss.b00
+etc/firmware/wcnss.b01
+etc/firmware/wcnss.b02
+etc/firmware/wcnss.b04
+etc/firmware/wcnss.b06
+etc/firmware/wcnss.b09
+etc/firmware/wcnss.b10
+etc/firmware/wcnss.b11
+etc/firmware/wcnss.mdt
