@@ -68,7 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.fuse_sdcard=true \
     persist.sys.isUsbOtgEnabled=true
 
 # Time

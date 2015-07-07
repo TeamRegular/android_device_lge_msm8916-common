@@ -146,21 +146,9 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.g4stylus \
-    init.class_main.sh \
-    init.epsilon0c_core.rc \
     init.g4stylus.rc \
-    init.g4stylus_core.rc \
-    init.g4stylus_product.rc \
-    init.g4stylus_sensors.rc \
-    init.lge.rc \
-    init.lge.usb.rc \
-    init.lge.usb.sh \
+    init.g4stylus_.usb.rc \
     init.qcom.bt.sh \
-    init.qcom.class_core.sh \
-    init.qcom.rc \
-    init.qcom.sh \
-    init.target.rc \
-    set_emmc_size.sh \
     ueventd.g4stylus.rc
 
 # RIL
