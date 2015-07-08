@@ -22,6 +22,43 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
+#KM_IMAGES := \
+#    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+
+#KM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(KM_IMAGES)))
+#$(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+#	@echo "Keymaster firmware link: $@"
+#	@mkdir -p $(dir $@)
+#	@rm -rf $@
+#	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+#ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
+
+WCNSS_IMAGES := \
+    wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
+    wcnss.b09 wcnss.b10 wcnss.b11 wcnss.mdt
+
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
+$(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
+
+#WV_IMAGES := \
+#    widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
+
+#WV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WV_IMAGES)))
+#$(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+#	@echo "Widevine firmware link: $@"
+#	@mkdir -p $(dir $@)
+#	@rm -rf $@
+#	$(hide) ln -sf /persist-lg/firmware/$(notdir $@) $@
+
+#ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS)
+
 # Create a link for the WCNSS config file, which ends up as a writable
 # version in /data/misc/wifi
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
