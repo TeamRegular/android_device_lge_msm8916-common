@@ -53,18 +53,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
-# Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND=' \
-    { "persist.data.sensor_name", AID_CAMERA, 0 }, \
-    { "camera.4k2k.enable", AID_MEDIA, 0 }, \
-    { "persist.data.rear.minfps", AID_MEDIA, 0 }, \
-    { "persist.data.front.minfps", AID_MEDIA, 0 }, \
-    '
-
-# CMHW
-#BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
-
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
