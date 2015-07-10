@@ -649,8 +649,10 @@ on property:init.svc.sdcard=running
 on nonencrypted
     setprop ro.crypto.fuse_sdcard true
 
-service charger /charger
+service charger /sbin/healthd -c
     class charger
+    critical
+    seclabel u:r:healthd:s0
 
 service vm_bms /system/bin/vm_bms
     user root
