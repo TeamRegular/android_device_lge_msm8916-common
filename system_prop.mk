@@ -1,12 +1,9 @@
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.24bit.enable=true \
     audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=false \
-    audio.offload.pcm.enable=true \
+    audio.offload.gapless.enabled=true \
     tunnel.audio.encode=false \
     av.offload.enable=false \
-    av.streaming.offload.enable=false \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true \
@@ -54,7 +51,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio
