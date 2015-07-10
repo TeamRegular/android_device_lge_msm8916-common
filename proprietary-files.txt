@@ -153,8 +153,11 @@ vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/librpmb.so
+vendor/lib/lib-sec-disp.so
 vendor/lib/libsecureui.so
+vendor/lib/libsecureui_svcsock.so
 vendor/lib/libssd.so
+vendor/lib/libStDrvInt.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
