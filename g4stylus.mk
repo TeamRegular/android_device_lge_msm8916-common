@@ -157,8 +157,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.g4stylus \
     init.g4stylus.rc \
-    init.g4stylus_.usb.rc \
+    init.g4stylus.usb.rc \
     init.qcom.bt.sh \
+    init.qcom.power.rc \
+    init.recovery.g4stylus.rc \
     ueventd.g4stylus.rc
 
 # RIL

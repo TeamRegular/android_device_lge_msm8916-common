@@ -26,6 +26,7 @@
 #
 
 import init.g4stylus.usb.rc
+import init.qcom.power.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

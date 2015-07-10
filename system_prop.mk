@@ -51,6 +51,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min_freq_0=800000 \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio
