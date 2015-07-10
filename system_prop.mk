@@ -10,14 +10,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true \
-    ro.qc.sdk.audio.fluencetype=none
+    ro.qc.sdk.audio.fluencetype=none \
     use.voice.path.for.pcm.voip=true
 
 # Audio voice concurrency related flags
 PRODUCT_PROPERTY_OVERRIDES += \
     voice.playback.conc.disabled=true \
     voice.record.conc.disabled=true \
-    voice.voip.conc.disabled=true \
+    voice.voip.conc.disabled=true
+
+# Camera
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
