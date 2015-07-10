@@ -707,3 +707,10 @@ service perfd /system/bin/perfd
     class main
     user root
     disabled
+
+# Sensor daemon
+service sensord /system/bin/sensord
+    user system
+    group system
+    class late_start
+    oneshot
