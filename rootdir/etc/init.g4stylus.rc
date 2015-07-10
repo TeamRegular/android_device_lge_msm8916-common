@@ -647,7 +647,7 @@ on property:init.svc.sdcard=running
 
 # This will make sure that sdcard service starts as late_start.
 on nonencrypted
-    setprop ro.fuse_sdcard ${persist.fuse_sdcard}
+    setprop ro.crypto.fuse_sdcard true
 
 service charger /charger
     class charger
