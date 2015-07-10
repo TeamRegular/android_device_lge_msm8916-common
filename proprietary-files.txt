@@ -265,7 +265,10 @@ etc/permissions/qcrilhook.xml
 
 # Sensors
 bin/sensord
+lib/hw/lights.msm8916.so
 lib/hw/sensors.msm8916.so
+lib/libproxyhal.so
+
 
 # Thermal
 bin/thermal-engine
