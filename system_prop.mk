@@ -13,12 +13,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype=none \
     use.voice.path.for.pcm.voip=true
 
-# Audio voice concurrency related flags
-PRODUCT_PROPERTY_OVERRIDES += \
-    voice.playback.conc.disabled=true \
-    voice.record.conc.disabled=true \
-    voice.voip.conc.disabled=true
-
 # Camera
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
