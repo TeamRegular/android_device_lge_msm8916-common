@@ -283,12 +283,7 @@ on boot
     write /sys/module/lowmemorykiller/parameters/lmk_fast_run 0
 
     # LED
-    chown system system /sys/class/leds/red/pattern_id
-    chmod 0664 /sys/class/leds/red/pattern_id
-    chown system system /sys/class/leds/red/timed
-    chmod 0664 /sys/class/leds/red/timed
-    chown system system /sys/class/leds/red/time_on_off
-    chmod 0664 /sys/class/leds/red/time_on_off
+    write /sys/class/leds/red/brightness 0
 
     # pm debug mask enable(clock/resume irq)
     write /sys/kernel/debug/clk/debug_suspend 1
