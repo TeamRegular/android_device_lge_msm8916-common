@@ -23,8 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.enable.sglscale=1 \
     persist.hwc.mdpcomp.enable=true \
     ro.opengles.version=196608 \
-    ro.qualcomm.cabl=0 \
-    ro.sf.lcd_density=320
+    ro.qualcomm.cabl=0
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -60,10 +59,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     ro.telephony.ril_class=LgeLteRIL \
     ro.use_data_netmgrd=true
-
-# Storage
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \

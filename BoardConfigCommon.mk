@@ -13,12 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from the proprietary version
--include vendor/lge/g4stylus-common/BoardConfigVendor.mk
 
-LOCAL_PATH := device/lge/g4stylus-common
+BOARD_VENDOR := lge
 
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+LOCAL_PATH := device/lge/msm8916-common
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8916
@@ -27,6 +25,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 # CPU
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_BOARD_SUFFIX := _32
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
@@ -38,12 +37,12 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=g4stylus user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 vmalloc=508m androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x2000000
-TARGET_KERNEL_SOURCE := kernel/lge/g4stylus
+TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
 # Audio
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
@@ -53,6 +52,12 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
+
+# CNE Feature
+TARGET_LDPRELOAD := libNimsWrap.so
+
+# Crypto
+TARGET_HW_DISK_ENCRYPTION := false
 
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
@@ -70,9 +75,6 @@ EXTENDED_FONT_FOOTPRINT := true
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
 
 # Malloc
 MALLOC_IMPL := dlmalloc
@@ -93,18 +95,15 @@ TARGET_POWERHAL_VARIANT := qcom
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
-TARGET_RECOVERY_DEVICE_DIRS += device/lge/g4stylus-common
-TARGET_RECOVERY_FSTAB := device/lge/g4stylus-common/rootdir/etc/fstab.g4stylus
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Radio
-BOARD_RIL_CLASS := ../../../device/lge/g4stylus-common/ril/
+BOARD_RIL_CLASS := ../../../device/lge/msm8916-common/ril/
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += device/lge/g4stylus-common/sepolicy
+#BOARD_SEPOLICY_DIRS += device/lge/msm8916-common/sepolicy
 #BOARD_SEPOLICY_UNION += \
 
 # Time services
@@ -122,12 +121,3 @@ TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-
-# TWRP
-TW_THEME := portrait_hdpi
-BOARD_HAS_NO_REAL_SDCARD := true
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-RECOVERY_SDCARD_ON_DATA := true
-TW_INCLUDE_CRYPTO := true
-TW_NO_USB_STORAGE := true
-TW_NO_SCREEN_TIMEOUT := true

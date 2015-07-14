@@ -16,7 +16,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter h631, $(TARGET_DEVICE)),)
+ifeq ($(BOARD_VENDOR),lge)
+ifeq ($(TARGET_BOARD_PLATFORM),msm8916)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -28,4 +29,5 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
     ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
 	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
+endif
 endif

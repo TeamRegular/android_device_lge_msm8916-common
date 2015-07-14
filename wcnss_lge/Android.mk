@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter h631,$(TARGET_DEVICE)),)
-
 LOCAL_PATH:= $(call my-dir)
+
+ifeq ($(BOARD_VENDOR),lge)
+ifeq ($(TARGET_BOARD_PLATFORM),msm8916)
 
 include $(CLEAR_VARS)
 
@@ -27,4 +28,5 @@ LOCAL_MODULE := libwcnss_qmi
 
 include $(BUILD_SHARED_LIBRARY)
 
+endif
 endif
