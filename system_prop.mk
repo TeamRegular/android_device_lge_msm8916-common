@@ -6,6 +6,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
+    audio.offload.min.duration.secs=30 \
     tunnel.audio.encode=false \
     av.offload.enable=false \
     use.voice.path.for.pcm.voip=true
