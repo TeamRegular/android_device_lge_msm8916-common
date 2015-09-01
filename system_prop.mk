@@ -8,10 +8,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.gapless.enabled=true \
     tunnel.audio.encode=false \
     av.offload.enable=false \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=true \
-    ro.qc.sdk.audio.fluencetype=none \
     use.voice.path.for.pcm.voip=true
 
 # Camera
