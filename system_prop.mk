@@ -4,14 +4,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.buffer.size.kb=64 \
+    audio.offload.buffer.size.kb=32 \
     audio.offload.gapless.enabled=true \
-    audio.offload.pcm.16bit.enable=false \
-    audio.offload.pcm.24bit.enable=true \
     audio.offload.min.duration.secs=30 \
     tunnel.audio.encode=false \
-    av.offload.enable=true \
-    av.streaming.offload.enable=true \
+    av.offload.enable=false \
     use.voice.path.for.pcm.voip=true
 
 # Camera
