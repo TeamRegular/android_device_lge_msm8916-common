@@ -4,7 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.buffer.size.kb=32 \
+    audio.offload.buffer.size.kb=64 \
     audio.offload.gapless.enabled=true \
     audio.offload.min.duration.secs=30 \
     tunnel.audio.encode=false \
@@ -12,6 +12,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     use.voice.path.for.pcm.voip=true
 
 # Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.camera.pip.support=0
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
@@ -24,7 +27,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.enable.sglscale=1 \
     persist.hwc.mdpcomp.enable=true \
     ro.opengles.version=196608 \
-    ro.qualcomm.cabl=0
+    ro.qualcomm.cabl=2
+
+# DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dpm.feature=3
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
